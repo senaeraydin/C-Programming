@@ -1,0 +1,45 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int read_line(char str[], int n, FILE* fp);
+int main(int agrc, char* argv[]) {
+	FILE* fp;
+	char array[200];
+
+	int item, year, month, day;
+	float price;
+
+	if (agrc != 2) {
+		fprintf(stderr, "USAGE: %s filename\n", argv[0]);
+		exit(EXIT_FAILURE);
+	}
+
+	if ((fp = fopen(argv[1], "r")) == NULL) {
+		fprintf(stderr, "Error: file %s can't be opened\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
+
+	printf("Item\t\tUnit\t\tPurchase\n\t\tPrice\t\tDate\n");
+
+	while (read_line(array, 200, fp) != 0)
+	{
+		sscanf(array , "%d,%f,%d/%d/%d", &item, &price, &month, &day, &year);
+		printf("%d\t\t$%8.2f\t%.2d/%.2d/%.4d\n", item, price, month, day, year);
+	}
+
+	return 0;
+}
+int read_line(char str[], int n, FILE* fp)
+{
+	int ch, i = 0;
+
+	while (isspace(ch = getc(fp)))
+		;
+	while (ch != '\n' && ch != EOF) {
+		if (i < n)
+			str[i++] = ch;
+		ch = getc(fp);
+	}
+	str[i] = '\0';
+	return i;
+}
