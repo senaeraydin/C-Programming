@@ -1,0 +1,43 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+
+#define NUM_ROWS 5
+#define NUM_COLUMNS 3
+int main(void) {
+
+
+	int myarray[NUM_ROWS][NUM_COLUMNS] = { {2,4,6},{1,2,3},{3,6,9},{4,8,12},{5,10,15} };
+	int (*mypointer)[NUM_COLUMNS], i, j, column_sum, entered_value, column_number; //entered_value for the column number which user want.
+	for (i = 0; i < NUM_ROWS; i++) {
+		column_number = 0;
+		for (j = 0; j < NUM_COLUMNS; j++) {
+			column_number++;
+		}
+	}
+	printf("Array has %d columns.\n", column_number);
+	printf("Enter a column number to calculate the sum of its elements: ");
+	scanf("%d", &entered_value);
+	printf("\n\n");  
+	column_sum = 0;
+	if (entered_value == 1) {
+		for (mypointer = &myarray[0], i = 0; mypointer < &myarray[NUM_ROWS]; mypointer++) {
+			column_sum += (*mypointer)[i];
+		}
+		printf("The sum of elements is: %d", column_sum);
+	}
+	if (entered_value == 2) {
+		for (mypointer = &myarray[0], i = 1; mypointer < &myarray[NUM_ROWS]; mypointer++) {
+			column_sum += (*mypointer)[i];
+		}
+		printf("The sum of elements is: %d", column_sum);
+	}
+	if (entered_value == 3) {
+		for (mypointer = &myarray[0], i = 2; mypointer < &myarray[NUM_ROWS]; mypointer++) {
+			column_sum += (*mypointer)[i];
+		}
+		printf("The sum of elements is: %d", column_sum);
+	}
+	
+	
+	return 0;
+}
