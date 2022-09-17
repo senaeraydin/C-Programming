@@ -1,0 +1,23 @@
+#include <stdio.h>
+int main(void)
+{
+	float multiply = 1;
+	float number;
+
+	printf("This program multiplies a series of numbers\n");
+	while (1)
+	{
+		printf("Enter a number (0 to terminate) :");
+		scanf("%f", &number);
+		
+		if(number == 0)
+		{
+			break;
+		}
+		multiply *= number;
+	}
+
+	printf("The result is %.1f", multiply); 
+	return 0;
+
+}
