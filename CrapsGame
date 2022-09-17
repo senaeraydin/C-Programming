@@ -1,0 +1,60 @@
+#include<stdio.h>
+#include<stdbool.h>
+#include<time.h>//for random choose
+#include<stdlib.h>//for random choose
+
+int roll_dice(void);
+bool play_game(void);
+
+int main(void)
+{
+	int wins = 0, losses = 0;
+	char again;
+	srand((unsigned)time(NULL));
+		
+	{
+		if (play_game()) {
+			printf("You win!\n\n");
+			wins++;
+		}
+		else {
+			printf("You lose!\n\n");
+			losses++;
+		}
+		printf("Play again?");
+		scanf(" %c", &again);
+	} while (tolower(again)== 'y');
+	
+	printf("Wins: %d  Losses: %d\n", wins, losses);
+	return 0;
+}
+
+int roll_dice(void) //sum of two dice
+{
+	return (rand() % 6 + 1) + (rand() % 6 + 1); 
+	
+}
+bool play_game(void)
+{
+	int roll, point;
+	roll = roll_dice();
+	printf("You rolled: %d\n", roll);
+	switch (roll)
+	{
+	case 7: case 11:
+		return true;
+	case 2: case 3: case 12:
+		return false;
+	}
+	point = roll;
+	printf("Your point is %d\n", point);
+
+	for (;;) {
+		roll = roll_dice();
+		printf("You rolled: %d\n", roll);
+		if (roll == point)
+			return true;
+		else if (roll == 7)
+			return false;
+	}
+}
