@@ -1,0 +1,13 @@
+#include<stdio.h>
+int main(void)
+{
+	int seconds1, seconds2, hours, minutes;
+	printf("Input seconds:");
+	scanf("%d", &seconds1);
+	hours = seconds1 / 3600;
+	minutes = (seconds1 - 3600)/ 60;
+	seconds2 = (seconds1 - 3600) - 60 * 18;
+	printf("H:M:S: -> %d:%d:%d", hours, minutes, seconds2);
+
+	return 0;
+}
