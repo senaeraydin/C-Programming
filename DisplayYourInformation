@@ -1,0 +1,9 @@
+#include<stdio.h>
+int main(void)
+{
+	printf("19000011\n");
+	printf("John Doe\n");
+	printf("Faculty of Engineering\n");
+	printf("Computer Engineering\n");
+	return 0;
+}
