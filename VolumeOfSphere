@@ -1,0 +1,14 @@
+#define Pİ 3.14159f
+#include<stdio.h>
+int main(void)
+{
+	int radius;
+	float fraction, volume;
+	radius = 10;
+	fraction = 4.0f / 3.0f; /*If we write fraction=4/3, answer of the volume will be different. */
+	volume = fraction * Pİ * radius * radius * radius;
+	
+	printf("Volume (cubic meters): %.1f\n", volume); 
+
+	return 0;
+}
