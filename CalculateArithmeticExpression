@@ -1,0 +1,32 @@
+#include <stdio.h>
+int main(void)
+{
+	float value, operand;
+	char operator;
+
+	printf("Enter an expression: ");
+	scanf("%f ", &value); //reads first operand
+
+	//read succesive operators and operands
+	while ((operator=getchar()) != '\n') {
+		if (operator == ' ')
+			continue;
+		scanf("%f", &operand);
+		switch (operator) {
+		case '+':
+			value += operand;
+			break;
+		case '-':
+			value -= operand;
+			break;
+		case '*':
+			value *= operand;
+			break;
+		case '/':
+			value /= operand;
+			break;
+		}
+	}
+	printf("Value of expression: %g\n", value);
+	return 0;
+}
