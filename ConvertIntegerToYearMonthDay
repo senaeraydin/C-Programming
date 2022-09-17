@@ -1,0 +1,14 @@
+#include<stdio.h>
+int main(void)
+{
+  int input1, year, month, day;
+  printf("Input no. of days:");
+  scanf("%d", &input1);
+  year = input1 / 365;
+  month = (input1 % 365) / 30;
+  day = (input1 % 365) % 30;
+  printf("%d Year(s)\n", year);
+  printf("%d Month(s)\n", month);
+  printf("%d Day(s)\n", day);
+  return 0;
+}
