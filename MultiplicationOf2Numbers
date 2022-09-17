@@ -1,0 +1,12 @@
+#include<stdio.h>
+int main(void)
+{
+	int integer1, integer2, multiplication;
+	printf("Input the first integer:");
+	scanf("%d", &integer1);
+	printf("Input the second integer:");
+	scanf("%d", &integer2);
+	multiplication = integer1 * integer2;
+	printf("Multiplication of the above two integers= %d", multiplication);
+	return 0;
+}
